@@ -1,0 +1,34 @@
+-- What was the hottest day in our data set? Where was that?
+SELECT
+	ZIP,
+	MAX(MaxTemperatureF) MaxTempF
+FROM 
+	weather
+GROUP BY ZIP
+
+-- How many trips started at each station?
+SELECT 
+	start_station,
+	COUNT(trip_id) num_trips
+FROM 
+	trips
+GROUP BY start_station
+
+-- What's the shortest trip that happened?
+SELECT
+	duration,
+	trip_id
+FROM 
+	trips
+GROUP BY
+	duration
+ORDER BY duration ASC
+
+--  What is the average trip duration, by end station?
+SELECT 
+	AVG(duration) duration_avg,
+	end_station
+FROM 
+	trips
+GROUP BY 
+	end_station
