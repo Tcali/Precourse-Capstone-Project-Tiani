@@ -1,0 +1,28 @@
+--first challenge
+SELECT 
+	trip_id,
+	duration
+FROM 
+	trips
+WHERE 
+	duration < 500
+ORDER BY duration
+
+--second challenge
+SELECT 
+	*
+FROM 
+	stations
+WHERE 
+	station_id = 84
+  
+  --third challenge
+  SELECT
+	MinTemperatureF,
+	Events,
+	ZIP
+FROM 
+	weather
+WHERE 
+	events LIKE 'rain' AND
+	ZIP = 94301
