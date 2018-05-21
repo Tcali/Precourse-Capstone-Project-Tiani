@@ -1,59 +1,7 @@
 -- What are the three longest trips on rainy days?
 --my attempt
-WITH longest
-AS (
-	SELECT 
-	 trip_id,
-	 MAX (duration) duration,
-	 zip_code
-FROM
-	trips t
-GROUP BY 1
-)
-SELECT 
-	l.trip_id,
-	l.duration,
-	l.zip_code
-FROM 
-	longest l
-SELECT 
-	ZIP,
-	events
-CASE 
-WHEN events LIKE 'rain'
-THEN 'rained'
-ELSE 'did not rain' 
-END
-FROM 
-	weather w
-JOIN
-    longest
-ON
-    w.ZIP = l.zip_code
-GROUP BY 1
-
---if I did the sample solutions but changed the order, it DOESNT work. why?
-SELECT
-trip_id,
-duration,
-DATE(start_date) trip_date
-FROM trips
-
-with rainy as 
-(SELECT 
-date
-From weather
-WHERE events = 'Rain'
-GROUP BY 1
-)
-
-JOIN rainy
-on rainy.date = trip_date
-ORDER BY duration DESC
-LIMIT 3
-
---but this works
-with rainy as 
+WITH rainy 
+AS
 (SELECT 
 date
 From weather
@@ -115,6 +63,11 @@ DATE(start_date) trip_date
 FROM trips
 JOIN rainy
 on rainy.date = trip_date
-ORDER BY duration DESC
+
+SELECT
+max (duration)
+FROM
+trips
+GROUP BY 1
 
   
