@@ -1,0 +1,34 @@
+--What's the most expensive listing? What else can you tell me about the listing?
+SELECT 
+	price,
+	*
+FROM listings
+ORDER BY price DESC 
+-- but this gives something that has price of 999, and many other things also have that price. 
+-- Also, many other ones have over 1000 but that doesn't come out when I view a table w just by price
+
+--What neighborhoods seem to be the most popular? (as defined by most reviews and least availability)
+SELECT 
+	neighbourhood,
+	max(number_of_reviews),
+	min(availability_365)
+FROM 
+	listings
+  
+  --What time of year is the cheapest time to go to your city? What about the busiest? 
+  --(there's no time of year or date possible besides review date so I'm confused)
+CASE
+(AS 
+
+)
+SELECT
+  price
+FROM 
+  listings
+ ORDER BY price
+ 
+ SELECT
+	availability_365
+FROM 
+	listings
+ORDER BY availability_365
