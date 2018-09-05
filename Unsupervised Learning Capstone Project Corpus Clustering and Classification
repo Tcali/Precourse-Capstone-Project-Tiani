@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Unit 4 Capstone for Unsupervised Learning\n",
+    "# Unit 4 Capstone for Unsupervised Learning: Corpus Clustering and Classification\n",
     "\n",
     "Purpose:  \n",
     "Import 10 texts from 10 different authors and determine the best unsupervised learning methods to identify/predict the correct author given a subset of words.\n",
